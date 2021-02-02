@@ -2,7 +2,7 @@ const util = require("util");
 const fs = require("fs");
 
 
-const uuidv1 = require("uuid/v1");
+const { uuid } = require('uuidv4');
 
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
@@ -39,7 +39,7 @@ class Save {
     }
 
     
-    const newNote = { title, text, id: uuidv1() };
+    const newNote = { title, text, id: uuid() };
 
    
     return this.get()
