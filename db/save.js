@@ -2,7 +2,7 @@ const util = require("util");
 const fs = require("fs");
 
 
-const uuidv1 = require("uuid/v1");
+const uuid = require("uuid");
 
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
@@ -35,11 +35,11 @@ class Save {
     const { title, text } = note;
 
     if (!title || !text) {
-      throw new Error("Note 'title' and 'text' cannot be blank");
+      throw new Error("enter copy to title and text");
     }
 
     
-    const newNote = { title, text, id: uuidv1() };
+    const newNote = { title, text, id: uuid };
 
    
     return this.getNotes()
